@@ -1,4 +1,4 @@
-package com.gdj.studyoptimize;
+package com.gdj.studyoptimize.optimizebitmap;
 
 import android.graphics.Bitmap;
 

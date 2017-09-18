@@ -1,23 +1,26 @@
-package com.gdj.studyoptimize;
+package com.gdj.studyoptimize.optimizebitmap;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.graphics.RectF;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import com.gdj.studyoptimize.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 /**
- * 图片优化
+ * 图片优化   png >  jpg  > wabp
+ * isparta
  * 图片存在的几种形式:
  * file,
  * 流,大小和File差不多,可以通过把图片变成Base64的字符串传进去,以便进行加密
@@ -133,6 +136,7 @@ public class OptimizeBitmapActivity extends AppCompatActivity {
         }
 
     }
+
     //采样率压缩
     public void sampleCompress(View v) {
         File saveFile = new File(getExternalCacheDir(), "采样率压缩.jpg");
@@ -172,5 +176,16 @@ public class OptimizeBitmapActivity extends AppCompatActivity {
     //优化:::绕过安卓Bitmap  API层, 来自己编码实现修复使用哈夫曼算法
     //终极压缩
 
+    void oo(Uri uri) {
+        try {
+            File saveFile = new File(getExternalCacheDir(), "终极压缩.jpg");
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
 
+            Log.e("===compressImage===", "====开始==压缩==saveFile==" + saveFile.getAbsolutePath());
+            NativeUtil.compressBitmap(bitmap, saveFile.getAbsolutePath());
+            Log.e("===compressImage===", "====完成==压缩==saveFile==" + saveFile.getAbsolutePath());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

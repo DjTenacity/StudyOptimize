@@ -5,7 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 
+    <!--线程包活-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,8 +23,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OptimizeHttpActivity" />
-        <activity android:name=".OptimizeBitmapActivity"></activity>
+        <activity android:name=".http.OptimizeHttpActivity" />
+        <activity android:name=".optimizebitmap.OptimizeBitmapActivity" />
+        <activity android:name=".optimizedata.OptimizeDataActivity"></activity>
+        <activity
+            android:name=".keeplive1.OnePixelActivity"
+            android:theme="@style/KeepLiveStyle" />
+
+        <service android:name=".keeplive1.MyService" />
+        <!--双进程包活-->
+        <service
+            android:name=".keeplive.RemoteService"
+            android:process="remoteprocess" />
+        <service android:name=".keeplive.LocalService" />
+        <service android:name=".keeplive.JobHandleService"   android:permission="android.permission.BIND_JOB_SERVICE"></service>
     </application>
 
 </manifest>

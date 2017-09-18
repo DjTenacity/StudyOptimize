@@ -1,10 +1,12 @@
-package com.gdj.studyoptimize;
+package com.gdj.studyoptimize.http;
 
 import android.graphics.BitmapFactory;
 import android.net.http.HttpResponseCache;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.gdj.studyoptimize.R;
 
 import java.io.BufferedReader;
 import java.io.File;

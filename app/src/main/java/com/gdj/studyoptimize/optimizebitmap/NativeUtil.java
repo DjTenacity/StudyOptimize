@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gdj.studyoptimize;
+package com.gdj.studyoptimize.optimizebitmap;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -24,9 +24,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Rect;
-import android.util.Log;
 
 public class NativeUtil {
 	 private static int DEFAULT_QUALITY = 95;
